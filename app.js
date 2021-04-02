@@ -152,6 +152,6 @@ function removeLocalList(todo) {
          }
      });
 
-
+ 
 
  }
