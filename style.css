@@ -46,6 +46,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    border-radius: 10px;
   
   
      
@@ -153,20 +154,24 @@ body {
                 min-height: 30px;
                 margin: 25px 0;
                 padding: 5px;
+                border-radius: 10px;
             }
 
            
 
             .item {
-                background-color:var(--body-color);
+                /* background: rgba(236, 236, 236, 0.46); */
+                background-color: transparent;
                 box-shadow: var(--shadow);
                 padding: 5px;
                 position: relative;
-                border: 1px solid rgb(121, 12, 97);
-                margin: 5px 0;
+                border: 1px dashed rgb(243, 239, 242);
+                padding-bottom: 30px;
+                margin: 10px;
                 height: 33px;
-                color: rgba(114, 0, 129, 0.733);
-                font-weight: bold;
+                color: rgb(0, 0, 0);
+                
+                border-radius: 10px;
             
             }
 
@@ -199,10 +204,11 @@ body {
                 padding-top:5px;
                 padding-right: 5px;
                 transition: all 0.3s ease-in-out;
+                color: rgb(196, 18, 18);
             }
 
             .delete:hover {
-                color: rgb(71, 2, 85);;
+                color: rgb(53, 2, 21);;
                 transform:rotateZ(30deg);
                 
             }
