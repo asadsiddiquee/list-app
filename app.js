@@ -60,6 +60,7 @@ function removeItem(e) {
 
 
 function filterItems(e) {
+    console.log(e);
     var text = e.target.value.toLowerCase();
 
     var items = listE.getElementsByTagName('li');
@@ -138,5 +139,19 @@ function removeLocalList(todo) {
 
 
  function clearSearchContent() {
-     filter.value = "";
+    var text = filter.value = "";
+    
+     var items = listE.getElementsByTagName('li');
+     Array.from(items).forEach(function(item){
+ 
+         var itemName = item.firstChild.textContent;
+         if(itemName.toLowerCase().indexOf(text) != -1) {
+             item.style.display = 'block';
+         } else {
+             item.style.display = 'none';
+         }
+     });
+
+
+
  }
