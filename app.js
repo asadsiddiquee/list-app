@@ -32,10 +32,10 @@ function addItem(e) {
     li.className = 'item';
     li.appendChild(document.createTextNode(newItem));
     saveLocalList(itemValue.value);
-    var deleteBtn = document.createElement('button');
-    deleteBtn.className = 'delete';
+    var deleteBtn = document.createElement('i');
+    deleteBtn.className = 'delete far fa-trash-alt';
     
-    deleteBtn.appendChild(document.createTextNode('X'));
+    // deleteBtn.appendChild(document.createTextNode('X'));
     li.appendChild(deleteBtn);
     listE.appendChild(li);
      
