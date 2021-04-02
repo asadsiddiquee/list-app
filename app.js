@@ -4,7 +4,7 @@ let itemValue = document.getElementById('add-item');
 
 let filter = document.getElementById('search');
 
- 
+clearSearch = document.getElementById('clear')
 
 let plus = document.getElementById('plus');
 
@@ -12,47 +12,48 @@ let listE = document.getElementById('list-place');
 
 
  
-
+document.addEventListener('DOMContentLoaded', getLocalList)
 plus.addEventListener('click', addItem);
 listE.addEventListener('click', removeItem);
 filter.addEventListener('keyup', filterItems);
- 
+clearSearch.addEventListener('click', clearSearchContent)
+
 
 
 
 function addItem(e) {
-     
+     e.preventDefault()
     
     // get value
     
-    let newItem = itemValue.value;;
+    const newItem = itemValue.value;
 
     let li = document.createElement('li');
     li.className = 'item';
     li.appendChild(document.createTextNode(newItem));
-
+    saveLocalList(itemValue.value);
     var deleteBtn = document.createElement('button');
     deleteBtn.className = 'delete';
     
     deleteBtn.appendChild(document.createTextNode('X'));
     li.appendChild(deleteBtn);
     listE.appendChild(li);
-
- 
- 
+     
+    itemValue.value = "";
+    
 
 }
 
 
 function removeItem(e) {
-    console.log('aa')
+     
      if(e.target.classList.contains('delete')) {
-         if(confirm('are You Sure to delete?')) {
+       
              var li = e.target.parentElement;
              listE.removeChild(li);
-             console.log('1')
+             removeLocalList();
          }
-     }
+      
     
 }
 
@@ -74,3 +75,68 @@ function filterItems(e) {
 
 
 }
+
+
+function saveLocalList(e) {
+
+    let todos;
+    if (localStorage.getItem("todos") === null) {
+        todos = [];
+
+    } else {
+        todos = JSON.parse(localStorage.getItem("todos"));
+    }
+
+    todos.push(e);
+
+    localStorage.setItem("todos", JSON.stringify(todos));
+
+}
+
+
+function getLocalList() {
+    let todos;
+    if (localStorage.getItem("todos") === null) {
+        todos = [];
+
+    } else {
+        todos = JSON.parse(localStorage.getItem("todos"));
+    }
+    todos.forEach(function(e){
+        
+         newItem = e;
+    
+        let li = document.createElement('li');
+        li.className = 'item';
+        li.appendChild(document.createTextNode(newItem));
+         
+        var deleteBtn = document.createElement('button');
+        deleteBtn.className = 'delete';
+        
+        deleteBtn.appendChild(document.createTextNode('X'));
+        li.appendChild(deleteBtn);
+        listE.appendChild(li);
+    })
+}
+
+
+function removeLocalList(todo) {
+
+    let todos
+    if (localStorage.getItem("todos") === null) {
+        todos = [];
+
+    } else {
+        todos = JSON.parse(localStorage.getItem("todos"));
+    }
+
+    let toDoIndex = todos[0].innerText;
+    todos.splice(todos.indexOf(toDoIndex), 1);
+    localStorage.setItem("todos", JSON.stringify(todos));
+    console.log(todos[0])
+ }
+
+
+ function clearSearchContent() {
+     filter.value = "";
+ }

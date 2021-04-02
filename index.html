@@ -17,16 +17,17 @@
 
             <!-- search div -->
             <div class="search">
-                <input type="text" name="search" id="search" placeholder="Search...">
+                <input type="text" name="search" id="search" placeholder="Search..." autocomplete="off">
+                <button id="clear">-</button>
             </div>
 
             <!-- add item -->
             <div class="add-item-container">
                 <div class="add-item">
-                    <input type="text" name="add-item" id="add-item" placeholder="Add Item...">
-                    <ul id="plus">
-                        <li ><button>+</button></li>
-                    </ul>
+                    <form >
+                    <input type="text" name="add-item" id="add-item" placeholder="Add Item..." autocomplete="off">
+                    <button id="plus">+</button>
+                </form>
                 </div>
             </div>
 
