@@ -134,22 +134,17 @@ function removeLocalList(todo) {
     let toDoIndex = todos[0].innerText;
     todos.splice(todos.indexOf(toDoIndex), 1);
     localStorage.setItem("todos", JSON.stringify(todos));
-    console.log(todos[0])
+    
  }
 
 
  function clearSearchContent() {
-    var text = filter.value = "";
+      text = filter.value = "";
     
      var items = listE.getElementsByTagName('li');
      Array.from(items).forEach(function(item){
- 
-         var itemName = item.firstChild.textContent;
-         if(itemName.toLowerCase().indexOf(text) != -1) {
              item.style.display = 'block';
-         } else {
-             item.style.display = 'none';
-         }
+             console.log("test")
      });
 
  
