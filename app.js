@@ -27,8 +27,6 @@ itemValue.addEventListener('keydown', (e) => {
        
 });
 
-
-
 function addItem(e) {
     
  
