@@ -42,7 +42,6 @@ function addItem(e) {
     saveLocalList(itemValue.value);
     var deleteBtn = document.createElement('i');
     deleteBtn.className = 'delete far fa-trash-alt';
-    
     // deleteBtn.appendChild(document.createTextNode('X'));
     li.appendChild(deleteBtn);
     listE.appendChild(li);
@@ -114,17 +113,18 @@ function getLocalList() {
     todos.forEach(function(e){
         
          newItem = e;
-    
+
         let li = document.createElement('li');
         li.className = 'item';
         li.appendChild(document.createTextNode(newItem));
-         
-        var deleteBtn = document.createElement('button');
-        deleteBtn.className = 'delete';
-        
-        deleteBtn.appendChild(document.createTextNode('X'));
+       
+        var deleteBtn = document.createElement('i');
+        deleteBtn.className = 'delete far fa-trash-alt';
+        // deleteBtn.appendChild(document.createTextNode('X'));
         li.appendChild(deleteBtn);
         listE.appendChild(li);
+         
+        
     })
 }
 
