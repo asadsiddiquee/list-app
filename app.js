@@ -10,20 +10,30 @@ let plus = document.getElementById('plus');
 
 let listE = document.getElementById('list-place');
 
-
+ 
  
 document.addEventListener('DOMContentLoaded', getLocalList)
 plus.addEventListener('click', addItem);
+
 listE.addEventListener('click', removeItem);
 filter.addEventListener('keyup', filterItems);
 clearSearch.addEventListener('click', clearSearchContent)
 
+itemValue.addEventListener('keydown', (e) => {
+    
+    if(e.key === "Enter") {
+       addItem(e);
+    }
+       
+});
 
 
 
 function addItem(e) {
-     e.preventDefault()
     
+ 
+    
+    e.preventDefault()  
     // get value
     
     const newItem = itemValue.value;
